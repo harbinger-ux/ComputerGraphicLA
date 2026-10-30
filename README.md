@@ -9,7 +9,7 @@ An interactive 3D computer graphics engine built from scratch in Python using **
 ### Part 1: 2D & 3D Object Rendering
 * **9 Procedural 2D Planar Shapes**: Triangle, Rectangle, Pentagon, Regular Hexagon, Circle, Ellipse, Trapezoid, Star, and Arrow (constructed in the $XY$ plane with $+Z$ normals and normalized $[0, 1]^2$ UV coordinates).
 * **9 Procedural 3D Solid Primitives**: Cube, Sphere, Cylinder, Cone, Truncated Cone, Tetrahedron, Torus, Prism, and Pyramid (with analytical curved normals and sharp per-face polyhedral normals).
-* **Vectorized Parametric Surface ($z = f(x, y)$)**: Real-time evaluation of user-entered mathematical formulas (e.g., $\frac{\sin(\sqrt{x^2 + y^2})}{\sqrt{x^2 + y^2}}$) with automatic $10^{-10}$ zero-division singularity protection, area-weighted smooth vertex normals, and optional **Jet Colormap** height coloring.
+* **Vectorized Parametric Surface**: Evaluate user-entered mathematical formulas with automatic $10^{-10}$ zero-division singularity protection, area-weighted smooth vertex normals, and optional **Jet Colormap** height coloring.
 * **Custom `.obj` and `.ply` 3D Model Importers**:
   * **Wavefront `.obj`**: Supports arbitrary polygon fan-triangulation, topological `(v/vt/vn)` deduplication caching, automatic bounding-box normalization, and smooth normal generation.
   * **Stanford `.ply`**: Supports `ascii`, `binary_little_endian`, and `binary_big_endian` formats, including zero-copy vectorized NumPy buffer loading (`< 0.08s` for $>10\text{ MB}$ scans).
@@ -137,7 +137,7 @@ python -m src.utils.mesh_optimizer assets/your_model.ply 80
    * Select `Surface (z=f(x,y))`, type any expression in terms of `x` and `y` (e.g., `cos(x) * sin(y)` or `sin(sqrt(x**2 + y**2)) / sqrt(x**2 + y**2)`), and press **Enter**.
 3. **Import `.obj` or `.ply` Models & Optimize**:
    * Place your `.obj` or `.ply` file in `assets/` (or the project root).
-   * Select `Imported Model` in the **Shape** dropdown, enter the filename (e.g., `LowpolyTree.obj` or `key.ply`), and click **Load 3D Model**.
+   * Select `Imported Model` in the **Shape** dropdown, enter the filename (e.g., `LowpolyTree.obj` or `CopperKey.ply`), and click **Load 3D Model**.
    * To decimate a heavy mesh, adjust the **Voxel Grid Res** slider (`16`–`200`) and click **Optimize & Save to assets/**, then use the **Load Original** and **Load Optimized** buttons to compare triangle counts and visual quality.
 4. **Apply External Textures**:
    * Place an image file (e.g., `texture1.png`) in `assets/` or the project root.
